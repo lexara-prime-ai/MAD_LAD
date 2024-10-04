@@ -17,16 +17,21 @@ entry:
     %result = alloca i32, align 4
 
     ; Define and initialize integer stores.
-    store i32 33, i32* %lhs, align 4, !nontemporal !index
-    store i32 36, i32* %rhs, align 4, !nontemporal !index
+    store i32 33, i32* %lhs, align 4
+    store i32 36, i32* %rhs, align 4
     
     ; Read from memory.
     %lhs_val = load i32, i32* %lhs, align 4
     %rhs_val = load i32, i32* %rhs, align 4
 
     ; Create and store the result.
-    %result = add i32 %lhs_val, %rhs_val
+    %output = add i32 %lhs_val, %rhs_val
+    store i32 %output, i32* %result, align 4
 
+    %result_val = load i32, i32* %result, align 4
+    %msg = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([12 x i8], [12 x i8]* @.str, i32 0, i32 0), i32 %result_val)
+
+    ret i32 0
 }
 
 
