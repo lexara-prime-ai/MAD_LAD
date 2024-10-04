@@ -1,2 +1,2 @@
-# MAD_LAD
-For developers who think “conventional” is just a suggestion.
+## Welcome fellow Mad Lad
+Over here, _“conventional”_, _wink wink_, is just a suggestion.
