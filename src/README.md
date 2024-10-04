@@ -1,6 +1,6 @@
-### Building
+### Getting Started
 
-The following steps can be used to **build** and **run** the individual modules.
+The following steps can be used to **build** and **evaluate** llvm source files.
 
 #### Run LLVM IR source using the Interpreter (lli)
 ```bash
@@ -17,3 +17,16 @@ llc -filetype=obj <input>.ll -o <output>.o
 ```bash
 gcc <output>.o -o <output> -no-pie
 ```
+
+### Compiling and Linking the source files
+
+* `basic_web_server.ll`
+
+```bash
+llc -filetype=obj ./src/basic_web_server.ll -o server.obj
+```
+
+```bash
+gcc server.obj -o server.exe -lws2_32
+```
+
